@@ -3,17 +3,14 @@
   
 	export async function preload() {
     const posts = await getPosts();
-    if (posts) {
-      return {posts};
-    } else {
-      this.error(500, 'Hálózati hiba');
-    }
+    if (!posts) return this.error(500, 'A hírek nem elérhetőek!');
+    return {posts};
   }
 </script>
 
 <script>
   export let posts;
-  console.log(posts);
+  // console.log(posts);
 </script>
 
 <svelte:head>
