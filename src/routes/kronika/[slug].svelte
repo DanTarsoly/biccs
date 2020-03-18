@@ -1,18 +1,18 @@
 <script context="module">
-  import {getPost} from '../../contentful-client';
+  import {getStory} from '../../contentful-client';
   import {documentToHtmlString} from '@contentful/rich-text-html-renderer';
 
 	export async function preload({params}) {
-    const post = await getPost(params.slug);
-    if (!post) return this.error(404, 'A hír nem található!');
-    post.html = documentToHtmlString(post.fields.content);
-    return {post};
+    const story = await getStory(params.slug);
+    if (!story) return this.error(404, 'A hír nem található!');
+    story.html = documentToHtmlString(story.fields.content);
+    return {story};
 	}
 </script>
 
 <script>
-	export let post;
-  // console.log(post);
+	export let story;
+  // console.log(story);
 </script>
 
 <style>
@@ -48,13 +48,13 @@
 </style>
 
 <svelte:head>
-	<title>486 - {post.fields.title}</title>
+	<title>486 - {story.fields.title}</title>
 </svelte:head>
 
 <div>
-  <h1>{post.fields.title}</h1>
-  <h3>{post.fields.intro}</h3>
-  <div class="content">{@html post.html}</div>
-	<p>{post.fields.date}</p>
-	<p>{post.fields.author}</p>
+  <h1>{story.fields.title}</h1>
+  <h3>{story.fields.intro}</h3>
+  <div class="content">{@html story.html}</div>
+	<p>{story.fields.date}</p>
+	<p>{story.fields.author}</p>
 </div>

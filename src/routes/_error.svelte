@@ -28,7 +28,7 @@
 </style>
 
 <svelte:head>
-	<title>{status}</title>
+	<title>486 - {status}</title>
 </svelte:head>
 
 <h1>{status}</h1>

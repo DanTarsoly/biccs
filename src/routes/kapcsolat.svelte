@@ -3,7 +3,7 @@
   import {documentToHtmlString} from '@contentful/rich-text-html-renderer';
 
 	export async function preload() {
-    const page = await getPage('about');
+    const page = await getPage('contact');
     if (!page) return this.error(404, 'Az oldal nem található!');
     page.html = documentToHtmlString(page.fields.content);
     return {page};
@@ -13,6 +13,7 @@
 <script>
 	export let page;
   // console.log(page);
+  // console.log(page.fields.media);
 </script>
 
 <svelte:head>

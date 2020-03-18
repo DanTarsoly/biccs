@@ -27,3 +27,6 @@ const fetchEntriesForContentId = (id) => client.getEntries({
 export const getEntry = (id) => fetchEntryById(id);
 export const getPost = (slug) => fetchEntryByContentIdAndSlug('post', slug);
 export const getPosts = () => fetchEntriesForContentId('post');
+export const getStory = (slug) => fetchEntryByContentIdAndSlug('story', slug);
+export const getStories = () => fetchEntriesForContentId('story');
+export const getPage = (slug) => fetchEntryByContentIdAndSlug('page', slug);

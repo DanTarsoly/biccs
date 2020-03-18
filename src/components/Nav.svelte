@@ -50,8 +50,10 @@
 
 <nav>
 	<ul>
-		<li><a aria-current='{segment === undefined ? "page" : undefined}' href='.'>🏠</a></li>
-		<li><a aria-current='{segment === "rolunk" ? "page" : undefined}' href='rolunk'>Rólunk</a></li>
+		<li><a rel=prefetch aria-current='{segment === undefined ? "page" : undefined}' href='.'>🏠</a></li>
 		<li><a rel=prefetch aria-current='{segment === "hirek" ? "page" : undefined}' href='hirek'>Hírek</a></li>
+		<li><a rel=prefetch aria-current='{segment === "rolunk" ? "page" : undefined}' href='rolunk'>Rólunk</a></li>
+		<li><a rel=prefetch aria-current='{segment === "kronika" ? "page" : undefined}' href='kronika'>Krónika</a></li>
+		<li><a rel=prefetch aria-current='{segment === "kapcsolat" ? "page" : undefined}' href='kapcsolat'>Kapcsolat</a></li>
 	</ul>
 </nav>
