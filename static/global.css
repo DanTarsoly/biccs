@@ -1,23 +1,79 @@
 body {
 	margin: 0;
 	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.5;
-	color: #333;
+	color: #101108;
+	background: #bcc486;
+	/* background: #aed171; */
 }
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 0.5em 0;
-	font-weight: 400;
+	font-weight: 700;
 	line-height: 1.2;
 }
 
 h1 {
+	font-size:3.2em;
+	text-align: center;
+	margin: 0 auto 0.5em auto;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 2.6em;
+	text-align: center;
+	margin: 0 auto 0.5em auto;
+	text-transform: uppercase;
+}
+
+h3 {
 	font-size: 2em;
 }
 
+h4 {
+	font-size: 1.5em;
+}
+
+h5 {
+	font-size: 1.2em;
+	font-weight: 500;
+	margin: 0 0 0.2em 0;
+}
+
+h6 {
+	font-size: 1em;
+	font-weight: 500;
+	margin: 0 0 0.2em 0;
+}
+
 a {
+	text-decoration: none;
 	color: inherit;
+}
+
+p {
+	margin: 0.2em auto 1em auto;
+}
+
+ul {
+	padding:0 0 0 1em;
+}
+
+li {
+	list-style-type: none;
+}
+
+img {
+	width: 100%;
+	max-width: 400px;
+	margin: 0 0 1em 0;
+}
+
+figure {
+	text-align: center;
+	margin: 0 auto 1em auto;
 }
 
 code {
@@ -29,8 +85,28 @@ code {
 	border-radius: 2px;
 }
 
-@media (min-width: 400px) {
+pre {
+	box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
+	background-color: #f9f9f9;
+	padding: 0.5em;
+	border-radius: 2px;
+	overflow-x: auto;
+}
+
+@media (max-width: 480px) {
 	body {
-		font-size: 16px;
+		font-size: 14px;
+	}
+	h1 {
+		font-size: 2.4em;
+	}
+	h2 {
+		font-size: 2em;
+	}
+	h3 {
+		font-size: 1.6em;
+	}
+	h4 {
+		font-size: 1.4;
 	}
 }

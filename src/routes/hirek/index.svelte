@@ -22,20 +22,20 @@
 </svelte:head>
 
 <div>
-  <h1>{page.fields.title}</h1>
+  <h2>{page.fields.title}</h2>
 	{#if page.fields.intro}
-		<h3>{page.fields.intro}</h3>
+		<h4>{page.fields.intro}</h4>
 	{/if}
   <ul>
     {#each posts as post}
     <li>
       <a rel='prefetch' href='hirek/{post.fields.slug}'>
-        <h2>{post.fields.title}</h2>
-        <h4>{post.fields.date}</h4>
+        <h5><u>{post.fields.title}</u></h5>
+        <p>{post.fields.intro}</p>
       </a>
     </li>
     {:else}
-      <h2>Még nincsenek hírek!</h2>
+      <h5>Még nincsenek hírek!</h5>
     {/each}
   </ul>
 </div>

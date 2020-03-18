@@ -22,20 +22,20 @@
 </svelte:head>
 
 <div>
-  <h1>{page.fields.title}</h1>
+  <h2>{page.fields.title}</h2>
 	{#if page.fields.intro}
-		<h3>{page.fields.intro}</h3>
+		<h4>{page.fields.intro}</h4>
 	{/if}
   <ul>
     {#each stories as story}
     <li>
       <a rel='prefetch' href='kronika/{story.fields.slug}'>
-        <h2>{story.fields.title}</h2>
-        <h4>{story.fields.date}</h4>
+        <h5><u>{story.fields.title}</u></h5>
+        <p>{story.fields.intro}</p>
       </a>
     </li>
     {:else}
-      <h2>Még nincsenek beszámolók!</h2>
+      <h5>Még nincsenek beszámolók!</h5>
     {/each}
   </ul>
 </div>

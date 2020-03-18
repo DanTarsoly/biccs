@@ -21,9 +21,9 @@
 </svelte:head>
 
 <div>
-	<h1>{page.fields.title}</h1>
+	<h2>{page.fields.title}</h2>
 	{#if page.fields.intro}
-		<h3>{page.fields.intro}</h3>
+		<h4>{page.fields.intro}</h4>
 	{/if}
 	{#if page.html}
 		<div class="content">{@html page.html}</div>
