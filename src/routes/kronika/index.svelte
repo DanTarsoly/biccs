@@ -1,5 +1,5 @@
 <script context="module">
-  import {getPage, getStories} from '../../contentful-client';
+  import {getPage, getStories} from '../../api/contentful-client';
   
 	export async function preload() {
     const page = await getPage('chronicle');

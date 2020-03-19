@@ -1,5 +1,5 @@
 <script context="module">
-  import {getPage} from '../contentful-client';
+  import {getPage} from '../api/contentful-client';
   import {documentToHtmlString} from '@contentful/rich-text-html-renderer';
 
 	export async function preload() {

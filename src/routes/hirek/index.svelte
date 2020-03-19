@@ -1,5 +1,5 @@
 <script context="module">
-  import {getPage, getPosts} from '../../contentful-client';
+  import {getPage, getPosts} from '../../api/contentful-client';
   
 	export async function preload() {
     const page = await getPage('news');
