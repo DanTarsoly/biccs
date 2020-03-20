@@ -17,6 +17,20 @@
   // console.log(posts);
 </script>
 
+<style>
+  p {
+    margin: 0;
+  }
+
+  .post-container {
+    margin: 0.5em 0;
+    padding: 0.8em 1em;
+    background: #b2bc76;
+    border: 1px solid #8f9a4c;
+    border-radius: 4px;
+  }
+</style>
+
 <svelte:head>
 	<title>486 - {page.fields.title}</title>
 </svelte:head>
@@ -28,7 +42,7 @@
 	{/if}
   <ul>
     {#each posts as post}
-    <li>
+    <li class="post-container">
       <a rel='prefetch' href='hirek/{post.fields.slug}'>
         <h5><u>{post.fields.title}</u></h5>
         <p>{post.fields.intro}</p>

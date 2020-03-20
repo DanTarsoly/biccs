@@ -13,8 +13,20 @@
 <script>
 	export let page;
   // console.log(page);
-  // console.log(page.fields.media);
+  console.log(page.fields.media);
 </script>
+
+<style>
+	strong {
+		font-weight: normal;
+		font-size: 2em;
+		text-transform: uppercase;
+	}
+
+	.content {
+		text-align: center;
+	}
+</style>
 
 <svelte:head>
 	<title>{page.fields.title}</title>
@@ -32,10 +44,15 @@
 
 <div>
 	<h1>{page.fields.title}</h1>
-	{#if page.fields.intro}
-		<h3>{page.fields.intro}</h3>
-	{/if}
-	{#if page.html}
-		<div class="content">{@html page.html}</div>
-	{/if}
+	<div class="content">
+		{#if page.fields.media}
+			<img src={'https:' + page.fields.media.fields.file.url} alt="page.fields.media.fields.file.description">
+		{/if}
+		{#if page.fields.intro}
+			<strong>{page.fields.intro}</strong>
+		{/if}
+		{#if page.html}
+			<div class="content">{@html page.html}</div>
+		{/if}
+	</div>
 </div>
