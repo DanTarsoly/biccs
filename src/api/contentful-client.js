@@ -1,5 +1,6 @@
 const contentful = require('contentful');
-import {contentSpaceId, contentDeliveryAccessToken}  from '../secrets';
+import {CONTENT_SPADE_ID as contentSpaceId, 
+  CONTENT_DELIVERY_ACCESS_TOKEN as contentDeliveryAccessToken}  from '../secrets';
 
 const client = contentful.createClient({
   // This is the space ID. A space is like a project folder in Contentful terms

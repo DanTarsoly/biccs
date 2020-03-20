@@ -4,15 +4,16 @@
 
 <style>
 	nav {
-		border-bottom: 1px solid #9fab54;
+		background: #b2bc76;
+		border-bottom: 1px solid #8f9a4c;
 		font-weight: 300;
 		padding: 0 1em;
 	}
 
-	ul {
+	/* ul {
 		margin: 0;
 		padding: 0;
-	}
+	} */
 
 	/* clearfix */
 	ul::after {
