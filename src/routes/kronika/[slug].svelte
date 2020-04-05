@@ -11,6 +11,7 @@
 </script>
 
 <script>
+  import Post from '../../components/Post.svelte';
 	export let story;
   // console.log(story);
 </script>
@@ -19,10 +20,9 @@
 	<title>486 - {story.fields.title}</title>
 </svelte:head>
 
-<div>
-  <h2>{story.fields.title}</h2>
-  <h4>{story.fields.intro}</h4>
-  <div class="content">{@html story.html}</div>
-	<u>{story.fields.date}</u><br>
-	<i>{story.fields.author}</i>
-</div>
+<Post
+    title={story.fields.title}
+    intro={story.fields.intro}
+    content={story.html}
+    date={story.fields.date}
+    author={story.fields.author}/>

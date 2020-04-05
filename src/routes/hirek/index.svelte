@@ -1,16 +1,18 @@
 <script context="module">
   import {getPage, getPosts} from '../../api/contentful-client';
   
-	export async function preload() {
+	export async function preload({path}) {
     const page = await getPage('news');
     const posts = await getPosts();
     if (!page) return this.error(404, 'Az oldal nem található!');
     if (!posts) return this.error(500, 'A hírek nem elérhetőek!');
-    return {page, posts};
+    return {path, page, posts};
   }
 </script>
 
 <script>
+  import PostSummary from '../../components/PostSummary.svelte';
+  export let path;
   export let page;
   export let posts;
   // console.log(page);
@@ -18,17 +20,6 @@
 </script>
 
 <style>
-  p {
-    margin: 0;
-  }
-
-  .post-container {
-    margin: 0.5em 0;
-    padding: 0.8em 1em;
-    background: #b2bc76;
-    border: 1px solid #8f9a4c;
-    border-radius: 4px;
-  }
 </style>
 
 <svelte:head>
@@ -42,11 +33,13 @@
 	{/if}
   <ul>
     {#each posts as post}
-    <li class="post-container">
-      <a rel='prefetch' href='hirek/{post.fields.slug}'>
-        <h5><u>{post.fields.title}</u></h5>
-        <p>{post.fields.intro}</p>
-      </a>
+    <li>
+      <PostSummary
+          path={path}
+          slug={post.fields.slug} 
+          title={post.fields.title} 
+          intro={post.fields.intro}
+          date={post.fields.date}/>
     </li>
     {:else}
       <h5>Még nincsenek hírek!</h5>
