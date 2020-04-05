@@ -1,16 +1,18 @@
 <script context="module">
   import {getPage, getStories} from '../../api/contentful-client';
   
-	export async function preload() {
+	export async function preload({path}) {
     const page = await getPage('chronicle');
     const stories = await getStories();
     if (!page) return this.error(404, 'Az oldal nem található!');
     if (!stories) return this.error(500, 'A beszámolók nem elérhetőek!');
-    return {page, stories};
+    return {path , page, stories};
   }
 </script>
 
 <script>
+  import PostSummary from '../../components/PostSummary.svelte';
+  export let path;
   export let page;
   export let stories;
   // console.log(page);
@@ -18,17 +20,6 @@
 </script>
 
 <style>
-  p {
-    margin: 0;
-  }
-
-  .post-container {
-    margin: 0.5em 0;
-    padding: 0.8em 1em;
-    background: #b2bc76;
-    border: 1px solid #8f9a4c;
-    border-radius: 4px;
-  }
 </style>
 
 <svelte:head>
@@ -42,11 +33,13 @@
 	{/if}
   <ul>
     {#each stories as story}
-    <li class="post-container">
-      <a rel='prefetch' href='kronika/{story.fields.slug}'>
-        <h5><u>{story.fields.title}</u></h5>
-        <p>{story.fields.intro}</p>
-      </a>
+    <li>
+      <PostSummary 
+          path={path}
+          slug={story.fields.slug} 
+          title={story.fields.title} 
+          intro={story.fields.intro}
+          date={story.fields.date}/>
     </li>
     {:else}
       <h5>Még nincsenek beszámolók!</h5>

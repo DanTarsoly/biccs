@@ -13,7 +13,7 @@
 <script>
 	export let page;
   // console.log(page);
-  console.log(page.fields.media);
+  // console.log(page.fields.media);
 </script>
 
 <style>
