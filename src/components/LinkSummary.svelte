@@ -1,6 +1,5 @@
 <script>
-export let path;
-export let slug;
+export let url;
 export let title;
 export let intro;
 export let date;
@@ -11,7 +10,7 @@ export let date;
     margin: 0;
   }
 
-  .post-container {
+  .link-container {
     margin: 0.5em 0;
     padding: 0.8em 1em;
     background: #b2bc76;
@@ -20,8 +19,8 @@ export let date;
   }
 </style>
 
-<a rel=prefetch href="{path}/{slug}">
-  <div class="post-container">
+<a rel="noopener noreferrer" target="blank" href="{url}">
+  <div class="link-container">
     {#if title}
       <h5>{title}</h5>
     {/if}

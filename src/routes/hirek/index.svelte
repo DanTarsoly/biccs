@@ -1,22 +1,23 @@
 <script context="module">
-  import {getPage, getPosts} from '../../api/contentful-client';
+  import {getPage} from '../../api/contentful-client';
+  import {FB_PAGE_ID as pageId,
+    FB_ACCESS_TOKEN as accessToken} from '../../secrets';
   
-	export async function preload({path}) {
+	export async function preload() {
     const page = await getPage('news');
-    const posts = await getPosts();
     if (!page) return this.error(404, 'Az oldal nem található!');
-    if (!posts) return this.error(500, 'A hírek nem elérhetőek!');
-    return {path, page, posts};
+    const res = await this.fetch(`https://graph.facebook.com/${pageId}/posts?access_token=${accessToken}`);
+    if (!res.ok) return this.error(500, 'A hírek nem elérhetőek!');
+    const json =  await res.json();
+    const posts = json.data;
+    return {page, posts};
   }
 </script>
 
 <script>
-  import PostSummary from '../../components/PostSummary.svelte';
-  export let path;
+  import LinkSummary from '../../components/LinkSummary.svelte';
   export let page;
   export let posts;
-  // console.log(page);
-  // console.log(posts);
 </script>
 
 <style>
@@ -34,12 +35,10 @@
   <ul>
     {#each posts as post}
     <li>
-      <PostSummary
-          path={path}
-          slug={post.fields.slug} 
-          title={post.fields.title} 
-          intro={post.fields.intro}
-          date={post.fields.date}/>
+      <LinkSummary
+          url={`https://www.facebook.com/${post.id}`}
+          title={post.message} 
+          date={new Date(post.created_time)}/>
     </li>
     {:else}
       <h5>Még nincsenek hírek!</h5>

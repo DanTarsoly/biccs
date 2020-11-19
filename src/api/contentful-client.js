@@ -1,12 +1,12 @@
 const contentful = require('contentful');
-import {CONTENT_SPADE_ID as contentSpaceId, 
-  CONTENT_DELIVERY_ACCESS_TOKEN as contentDeliveryAccessToken}  from '../secrets';
+import {CONTENTFUL_SPADE_ID as spaceId, 
+  CONTENTFUL_DELIVERY_ACCESS_TOKEN as accessToken}  from '../secrets';
 
 const client = contentful.createClient({
   // This is the space ID. A space is like a project folder in Contentful terms
-  space: process.env.CONTENT_SPADE_ID || contentSpaceId,
+  space: process.env.CONTENT_SPADE_ID || spaceId,
   // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-  accessToken: process.env.CONTENT_DELIVERY_ACCESS_TOKEN || contentDeliveryAccessToken
+  accessToken: process.env.CONTENT_DELIVERY_ACCESS_TOKEN || accessToken
 });
 
 const fetchEntryById = (id) => client.getEntry(id)
