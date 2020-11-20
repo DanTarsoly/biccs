@@ -46,7 +46,7 @@
 	<h1>{page.fields.title}</h1>
 	<div class="content">
 		{#if page.fields.media}
-			<img src={'https:' + page.fields.media.fields.file.url} alt="page.fields.media.fields.file.description">
+			<img src={'https:' + page.fields.media.fields.file.url} alt="{page.fields.media.fields.file.description}">
 		{/if}
 		{#if page.fields.intro}
 			<strong>{page.fields.intro}</strong>
